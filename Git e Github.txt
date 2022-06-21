@@ -120,23 +120,6 @@ $ git config --global user.email "emailDoUsuario"</code></pre>
 
 <pre><code>$ git commit -a -m "commit message"</code></pre>
 
-<h2>Branch</h2>
-
-<p>Uma ramificação no git é um ponteiro para as alterações feitas nos arquivos do projeto. É útil em situações nas quais você deseja adiconar um novo recurso ou corrigir um erro, gerando uma nova ramificação daquele arquivo, garantido que aquele código instável não seja misturado nos arquivos do projeto principal. Depois de concluido, podemos mesclar a raamificação com a principal, geralmente chamada de master.</p>
-
-<h3>Criando uma branch local</h3>
-
-<p>Após criar o <i>branch</i> é preciso fazer o <i>checkout</i> para acessar o <i>branch</i>: </p>
-
-<pre><code>$ gir checkout branch-001</code></pre>
-
-<p>Ou ainda podemos criar um novo <i>branch</i> e acessa-lo usando o comando:</p>
-
-<pre><code>$ git checkout -b branch-001</code></pre>
-
-<p>Para verificar o novo <i>branch</i> digite:</p>
-
-<pre><code>$ git status</code></pre>
 
 <h2>Logs</h2>
 
@@ -223,7 +206,7 @@ $ git config --global user.email "emailDoUsuario"</code></pre>
 </ol>
 
 <h3>Visualizando as chaves</h3>
-
+git 
 <p>Para ver as chaves criadas vamos usar o seguinte comando:</p>
 
 <pre><code>$ cd ~/.ssh</code></pre>
@@ -248,7 +231,45 @@ $ git config --global user.email "emailDoUsuario"</code></pre>
 
 <p>Ou podemos acessar um repositório já existente:</p>]
 <pre><code>$ git remote add origin + o endereço do repositorio no github </code></pre>
-<pre><code>$ git push -u origin master </code></pre>
+<pre><code>$ git push -u origin master </code></pre> <p>Esse comando permite enviar os arquivos do repositório local para o repositório remoto atrelado a essa pasta</p>
+
+<p>OBS: o 'origin' no comando acima, é um default ou seja,podemos usar qualquer outro nome.</p>
+
+<h2>Clonando repositórios </h2>
+
+<p>Há a possibilidade de copiar repositórios do GitHub através do git para a nossa máquina, isso é útil pois podemos copiar repositórios de outras pessoas, projetos famosos open-source e copiar nossos repositórios para outras máquinas.</p>
+
+<p>Primeiramente iremos acessar o repositório no github e procurar pelo seu endereço e copiá-lo.</p>
+
+<pre><code>$ git clone + o endereço do repositório copiado interiormente.</code></pre>
+
+<p>O comando acima vai copiar todo o repositorio para a nossa máquina.</p>
+
+<h2>Fazendo fork de um projeto e o que é o fork</h2>
+
+<p>O fork permite pegar um projeto que não é nosso e faz uma cópia para nós, isso é útil caso queiramos contribuir/ajudar nesse projeto ou corrigir algo. Primeiro fazemos o fork e depois fazemos um request de avisando ao responsavel do repositório as modificações feitas.Mas essas modificações só vão ser válidas caso o responsável as aceite.</p>
+
+<p>OBS: Isso é feito dentro do GitHub e não no git, pois estamos fazendo uma cópia desse repositório para o nosso repositório para depois baixar para a nossa máquina</p>
+
+
+<h2>Branch</h2>
+
+<p>Uma ramificação no git é um ponteiro para as alterações feitas nos arquivos do projeto. É útil em situações nas quais você deseja adiconar um novo recurso ou corrigir um erro, gerando uma nova ramificação daquele arquivo, garantido que aquele código instável não seja misturado nos arquivos do projeto principal. Depois de concluido, podemos mesclar a raamificação com a principal, geralmente chamada de master.</p>
+
+<h3>Criando uma branch local</h3>
+
+<p>Após criar o <i>branch</i> é preciso fazer o <i>checkout</i> para acessar o <i>branch</i>: </p>
+
+<pre><code>$ gir checkout branch-001</code></pre>
+
+<p>Ou ainda podemos criar um novo <i>branch</i> e acessa-lo usando o comando:</p>
+
+<pre><code>$ git checkout -b branch-001</code></pre>
+
+<p>Para verificar o novo <i>branch</i> digite:</p>
+
+<pre><code>$ git status</code></pre>
+
 
 
 
