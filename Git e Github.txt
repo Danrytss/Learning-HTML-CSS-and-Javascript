@@ -256,26 +256,62 @@ git
 
 <p>Uma ramificação no git é um ponteiro para as alterações feitas nos arquivos do projeto. É útil em situações nas quais você deseja adiconar um novo recurso ou corrigir um erro, gerando uma nova ramificação daquele arquivo, garantido que aquele código instável não seja misturado nos arquivos do projeto principal. Depois de concluido, podemos mesclar a raamificação com a principal, geralmente chamada de master.</p>
 
-<h3>Criando uma branch local</h3>
+<h3>Vantagens</h3>
 
-<p>Após criar o <i>branch</i> é preciso fazer o <i>checkout</i> para acessar o <i>branch</i>: </p>
+<ul>
+<li>Poder modificar sem alterar o local principal(master)</li>
+<li>Facilmente "desligável"(posso apagar facilmente um brach)</li>
+<li>Múltiplas pessoas trabalhando em diferentes branchs</li>
+<li>Evita conflitos</li>
+</ul>
 
-<pre><code>$ gir checkout branch-001</code></pre>
+<h3>Criando um branch</h3>
 
-<p>Ou ainda podemos criar um novo <i>branch</i> e acessa-lo usando o comando:</p>
+<p>Usando o seguinte comando podemos criar uma branch facilmente:</p>
 
-<pre><code>$ git checkout -b branch-001</code></pre>
+<pre><code>$ git checkout -b + o nome dado essa branch</code></pre>
 
-<p>Para verificar o novo <i>branch</i> digite:</p>
+<p>E usando <pre><code>$ git branch </code></pre> será listado as branchs existentes e em qual branch estamos no momento</p>
 
-<pre><code>$ git status</code></pre>
+<h3>Movendo e deletando branchs</h3>
 
+<p>Usando o seguinte comando podemos mudar de uma branch para outra:</p>
+
+<pre><code>$ git checkout + o nome da branch </code></pre>
+
+<p>Caso queiramos apagar uma branch usamos:</p>
+
+<pre><code>$ git branch -D + o nome do branch</code></pre>
+
+<h2>Merge</h2>
+
+<p>Á medida que você for trabalhando na sua tarefa, você provavelmente irá gerar vários commits em seu branch.</p>
+
+
+
+<p>Até aí, tudo ocorrendo na normalidade. Porém, o grande problema que podemos enfrentar é quando o branch master em nosso cenário fica “dessincronizado” com relação ao branch da nossa funcionalidade. Essa dessincronização pode acontecer por uma situação bem comum: outras pessoas mexeram no branch master enquanto trabalhávamos no branch da nossa tarefa. E a grande confusão vem do fato que o branch da nossa tarefa também foi gerado através do master, porém, em um momento anterior destas alterações.</p>
+
+
+<p>Nós precisamos, de alguma maneira, misturar os commits do branch da nossa tarefa com os commits posteriores que foram feitos no branch master, quando este for “fundido” novamente. Uma das maneiras de se fazer isso é justamente utilizar o git merge.</p>
+
+<p>O merge basicamente cria um novo commit no branch onde o merge é realizado. Este commit puxa consigo a última referência do branch a partir do qual o merge é realizado. Este commit “especial” é chamado de merge commit. Supondo então que você rode os comandos abaixo:</p>
+
+
+<pre><code>$ git checkout feature <p># indo para o branch da feature</p></code></pre>
+<pre><code>$ git merge master     <p># fazendo o merge entre o feature e o master</p></code></pre>
+
+<p>O merge é legal principalmente porque ele não altera os branches envolvidos. Na ilustração anterior, você pode perceber que tanto o branch feature quanto o branch master não são gerados. O master nem teve suas estruturas envolvidas na operação, enquanto o branch feature teve somente um commit adicional.</p>
+
+<p>O fato de a estrutura dos branches envolvidos não ser diretamente modificada reduz a possibilidade de haver problemas durante a operação de merge, mas também cria um commit adicional “esquisito” a cada operação. Esse commit adicional pode prejudicar a leitura do histórico dos commits através do git log, principalmente para quem ainda não está tão ambientado ao Git e seus conceitos.</p>
 
 
 
 <p>Fontes</p>
 
 <ul>
+
+<li><a href="https://www.treinaweb.com.br/blog/git-merge-e-git-rebase-quando-usa-los?gclid=Cj0KCQjw2MWVBhCQARIsAIjbwoMr2BIrw2zNqx3kAstLy9nzHFlCNPdS6y_fpDI14Z2eA-XKHEOlonYaAjUNEALw_wcB" target="_blank">Merge e Rebase - quando usá-los</a></li>
+
 <li><a href="https://blog.geekhunter.com.br/o-que-e-commit-e-como-usar-commits-semanticos/#O_que_e_Commit" target="_blank">Geek Hunter - Commit e commits semânticos</a></li>
 
 <li><a href="https://fullcycle.com.br/git-e-github/" target="_blank">Fullcycle - Git e Github</a></li>
